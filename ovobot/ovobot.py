@@ -18,21 +18,31 @@ class OVOBot(ircbot.SingleServerIRCBot, object):
             c.join(channel)
 
     def _dispatcher(self, c, e):
-        print e.eventtype()
-        print e.source()
-        print e.target()
-        print e.arguments()
-        print
+        if settings.DEBUG:
+            print e.eventtype()
+            print e.source()
+            print e.target()
+            print e.arguments()
+            print
         super(OVOBot, self)._dispatcher(c,e)
 
     def on_kick(self, c, e):
         whom = e.arguments()[0]
         who = e.arguments()[1]
-        print 'kicked %s by %s from %s' % (c.get_nickname(), who, e.target())
+        #print 'kicked %s by %s from %s' % (c.get_nickname(), who, e.target())
         if whom == c.get_nickname():
-            print 'rejoin in 10 sec'
-            c.execute_delayed( 10, c.join, arguments=(e.target(),) )
-            
+            #print 'rejoin in 60 sec'
+            c.execute_delayed( 60, c.join, arguments=(e.target(),) )
+        else:
+            obj = LogEntry(
+                channel = e.target(),
+                user = e.source(),
+                type = 'kick',
+                message = 'kicked by %s' % who,
+            )
+            obj.save()
+
+
     def on_pubmsg(self, c, e):
         obj = LogEntry(
             channel = e.target(),
