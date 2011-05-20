@@ -18,12 +18,12 @@
         {%  ifequal obj.type 'pubmsg' %}
             <div class="pp {% ifequal obj.nick nick %} hl {% endifequal %}">
                 <b>{{ obj.nick }}: </b>
-                {{ obj.message|escape }}
+                {{ obj.message|urlize }}
             </div>
         {% else %}
             <div class="pp m_{{ obj.type }}">
                 <b>* {{ obj.nick }} </b>
-                {{ obj.message|escape }}
+                {{ obj.message|urlize }}
             </div>
         {% endifequal %}
 
