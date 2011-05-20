@@ -38,7 +38,7 @@ class OVOBot(ircbot.SingleServerIRCBot, object):
                 channel = e.target(),
                 user = e.source(),
                 type = 'kick',
-                message = 'kicked by %s' % who,
+                message = 'kicked %s' % whom,
             )
             obj.save()
 
