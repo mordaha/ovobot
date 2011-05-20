@@ -6,7 +6,8 @@ from ovobot.ovolog import views
 
 urlpatterns = patterns(
     '',
-    url(r'^/$', views.index, name="index"),
+    url(r'^nomercy/$', views.nomercy, name="nomercy"),
+    url(r'^$', views.index, name="index"),
 #    url(r'^invite/(?P<hashstr>[a-z0-9]{56})/$', views.invite_click, name="invite_click"),
     )
 

@@ -51,5 +51,15 @@ class OVOBot(ircbot.SingleServerIRCBot, object):
         )
         obj.save()
 
+    def on_join(self, c, e):
+        obj = LogEntry(
+                channel = e.target(),
+                user = e.source(),
+                type = 'join',
+                message = 'joins',
+            )
+        obj.save()
+
+
 bot = OVOBot( settings.IRC_SERVER, settings.IRC_PORT, settings.IRC_NICK, settings.IRC_CHANNELS)
 bot.start()

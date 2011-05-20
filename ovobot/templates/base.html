@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>OVOBot Logs Page</title>
+
+<style type="text/css">
+
+body {
+	background-color: #e5e5e5;
+    margin-left: 0;
+    padding-left: 0;
+
+}
+
+.paper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+    min-width: 500px;
+	padding:0;
+
+}
+.container {
+	background-image: url('/media/img/right-bg.gif');
+	background-repeat: repeat-y;
+	background-position: right;
+	background-color: white;
+
+	width: 100%;
+	padding: 10px 30px 20px 20px;
+}
+
+.bottom {
+	background-image: url('/media/img/bottom-bg.gif');
+	background-repeat: no-repeat;
+	background-position: top right;
+	width: 100%;
+	margin: 0 10px 0 0;
+	padding: 10px 30px 24pt 20px;
+}
+
+.content {
+	background-color: #fff;
+	padding: 24pt 24pt;
+}
+
+
+.h1 {
+	font-family: Times New Roman, Times, Serif;
+	font-size: 18pt;
+	font-weight: bold;
+	margin: 18pt 0;
+	text-align: center;
+}
+
+.h2 {
+	font-family: Times New Roman, Times, Serif;
+	font-size: 16pt;
+	font-weight: bold;
+	margin: 30pt 0 12pt 0pt;
+	text-align: center;
+}
+
+.h3 {
+	font-family: Times New Roman, Times, Serif;
+	font-size: 14pt;
+	font-weight: bold;
+	margin: 6pt 0;
+	text-align: left;
+}
+
+.pp {
+	font-family: "Courier New", Courier, Serif;
+	font-size: 10pt;
+	margin: 6pt 0;
+	text-align: left;
+}
+
+.time {
+    font-family: "Courier New", Courier, Serif;
+    font-size: 9pt;
+    margin: 6pt 0;
+    text-align: left;
+    font-weight: bold;
+    color: #999;
+    text-align: center;
+
+}
+
+.hl {
+    color: #900;
+}
+
+.m_action {
+    color: #090;
+}
+.small {
+	font-size: 14pt;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="paper">
+		<div class="container">
+			<div class="content">
+{% block content %}
+{% endblock %}
+			</div>
+		</div>
+		<div class="bottom">
+			Copyright (c) mordaha@gmail.com, 2011
+			<br/>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

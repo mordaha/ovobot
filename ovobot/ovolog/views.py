@@ -18,11 +18,37 @@ from django.http import HttpResponseNotFound, HttpResponseForbidden
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 import datetime
+from django.conf import settings
 
 from ovobot.ovolog.models import *
 
 
 def index(req):
-    object_list = LogEntry.objects.filter(timestamp__gte=datetime.date.today()).order_by('-timestamp')
+
+    ip = req.META.get('REMOTE_ADDR', '127.0.0.1')
+
+    if settings.DEBUG:
+        ip = settings.DEBUG_IP
+
+    nick_list = LogEntry.objects.filter(user_ip=ip).order_by('-id')
+    nick = ''
+    for obj in nick_list:
+        nick = obj.get_nick()
+        break
+
+    print nick
+
+    if not nick:
+        return HttpResponseRedirect('/nomercy/')
     
+    channel = req.GET.get('channel', settings.IRC_CHANNELS[0])
+    object_list = LogEntry.objects.filter(timestamp__gte=datetime.date.today(),
+                        channel=channel).order_by('timestamp')
+
+    chaannel_list = LogEntry.objects.all().values('channel').distinct()
+
     return render_to_response('ovolog/index.html', context_instance=RequestContext(req, locals()))
+
+
+def nomercy(req):
+    return render_to_response('ovolog/nomercy.html', context_instance=RequestContext(req, locals()))

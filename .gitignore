@@ -1,5 +1,6 @@
 *.pyc
 *.pyo
+*.db
 settings_local.py
 media/files
 upload

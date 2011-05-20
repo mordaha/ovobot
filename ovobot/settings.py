@@ -19,7 +19,7 @@ DATABASES = {
     }
 }
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Moscow'
 
 LANGUAGE_CODE = 'en-us'
 
