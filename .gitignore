@@ -1,0 +1,16 @@
+*.pyc
+*.pyo
+settings_local.py
+media/files
+upload
+preview
+*.egg-info
+.idea
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info

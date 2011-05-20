@@ -1,0 +1,2 @@
+
+from ovobot.settings import *
