@@ -7,4 +7,19 @@
     <div class='h1'>
     Чтобы получить доступ что-нибудь напишите в чятик.
     </div>
+    <div class='h1'>
+        Попробуйте <a href="/">еще раз</a> или скажите секретное слово:
+    </div>
+
+    
+    <form action="" enctype="multipart/form-data"  method="post">
+            {% csrf_token %}
+            <fieldset class="form">
+                {% include 'form_snippet.html' %}
+                <div class="submit-row">
+                    <input type="submit" value="Myarrr" class="default" />
+                </div>
+            </fieldset>
+    </form>
+
 {%  endblock %}

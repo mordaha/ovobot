@@ -8,9 +8,11 @@ handler500 # Pyflakes
 
 urlpatterns = patterns(
     '',
-    (r'', include('ovobot.ovolog.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    (r'^captcha/', include('captcha.urls')),
+    (r'', include('ovobot.ovolog.urls')),
 )
 
 if settings.DEBUG:
