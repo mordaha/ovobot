@@ -3,7 +3,7 @@
 {% block content %}
 
     <div class="h1">
-    {{ channel }} (<a href="/accounts/logout/">logout</a>)
+    {{ channel }} {% if not user.is_anonymous %}(<a href="/accounts/logout/">logout</a>){% endif %}
     </div>
 
 
