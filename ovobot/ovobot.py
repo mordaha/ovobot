@@ -44,12 +44,12 @@ class OVOBot(ircbot.SingleServerIRCBot, object):
 
 
     def on_pubmsg(self, c, e):
-		msg = ''.join(e.arguments()
+        msg = ''.join(e.arguments())
         obj = LogEntry(
             channel = e.target(),
             user = e.source(),
             type = 'pubmsg',
-            message = msg ),
+            message = msg,
         )
         obj.save()
 					
