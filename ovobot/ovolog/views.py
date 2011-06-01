@@ -30,6 +30,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 #
 def index(req):
 
+    gte = datetime.datetime.now() + datetime.timedelta(hours=-24)
+
     # TODO: rewrite this to token-based auth 
     if req.user.is_anonymous():
         ip = req.META.get('REMOTE_ADDR', '127.0.0.1')
@@ -37,7 +39,7 @@ def index(req):
         if settings.DEBUG:
             ip = settings.DEBUG_IP
 
-        nick_list = LogEntry.objects.filter(user_ip=ip, timestamp__gte=datetime.date.today()).order_by('-id')
+        nick_list = LogEntry.objects.filter( user_ip=ip, timestamp__gte=gte ).order_by('-id')
         nick = ''
         for obj in nick_list:
             nick = obj.get_nick()
@@ -47,7 +49,7 @@ def index(req):
             return HttpResponseRedirect('/nomercy/')
 
     channel = req.GET.get('channel', settings.IRC_CHANNELS[0])
-    object_list = LogEntry.objects.filter(timestamp__gte=datetime.date.today(),
+    object_list = LogEntry.objects.filter(timestamp__gte=gte,
                         channel=channel).order_by('timestamp')
 
     chaannel_list = LogEntry.objects.all().values('channel').distinct()
