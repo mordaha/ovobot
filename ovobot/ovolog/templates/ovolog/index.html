@@ -4,6 +4,8 @@
 
 {% block content %}
 
+	<img src="/media/img/logo.jpg" alt="" style="float:right; width:80px;"/>
+
     <div class="h1">
     {{ channel }} {% if not user.is_anonymous %}(<a href="/accounts/logout/">logout</a>){% endif %}
     </div>
