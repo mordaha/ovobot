@@ -30,7 +30,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 #
 def index(req):
 
-    gte = datetime.datetime.now() + datetime.timedelta(hours=-24)
+    gte = datetime.datetime.now() + datetime.timedelta(hours=-36)
 
     # TODO: rewrite this to token-based auth 
     if req.user.is_anonymous():
