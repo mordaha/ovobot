@@ -59,7 +59,7 @@ class OVOBot(ircbot.SingleServerIRCBot, object):
         #print 'kicked %s by %s from %s' % (c.get_nickname(), who, e.target())
         if whom == c.get_nickname():
             #print 'rejoin in 60 sec'
-            c.execute_delayed( 60, c.join, arguments=(e.target(),) )
+            c.execute_delayed( 180, c.join, arguments=(e.target(),) )
         else:
             obj = LogEntry(
                 channel = e.target(),
